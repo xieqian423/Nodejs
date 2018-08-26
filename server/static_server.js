@@ -2,7 +2,7 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
-//const url = require('url');
+const url = require('url');
 const mime = require('./lookup');
 const config = require('./config/default');
 
@@ -60,11 +60,41 @@ class StaticServer {
     }
 
     respondRedirect(req, res) {
-
+        const locationn = req + '/';
+        res.writeHead(301, {
+            'Location': locationn,
+            'Content-Type': 'text/html'
+        });
+        res.end(`Redirecting to <a href='${location}'>${location}</a>`);
     }
 
     respondDirectory(pathname, req, res) {
+        const indexPage = path.join(pathname, this.indexPage);
+        if(fs.statSync(indexPage)){
+            this.respondFile(indexPage, res, req);
+        }else{
+            fs.readdir(pathname, (err, files) => {
+                if(err){
+                    res.writeHead(500);
+                    return res.end(err);
+                }
+                const requestPath = url.parse(req.url).pathname;
+                let content = `<h1>Index of ${requestPath}</h1>`;
+                files.forEach(file => {
+                    let itemLink = path.join(requestPath, file);
+                    const  stat = fs.statSync(path.join(pathname,file));
+                    if(stat && stat.isDirectory()){
+                        itemLink = path.join(itemLink, '/');
+                    }
+                    content += `<p><a href='${itemLink}'>${file}</a></p>`;
+                });
+                res.writeEnd(200, {
+                    'Content-Type': 'text/html'
+                });
+                res.end(content);
+            })
 
+        }
     }
 
     respondNotFound(req, res){
