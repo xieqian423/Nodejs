@@ -38,8 +38,6 @@ class StaticServer {
             if(!err){
               //this.respondFile(pathName, req, res);
                 const requestPath = url.parse(req.url).pathname;
-                console.log("req.url: " + req.url);
-                console.log("url.parse: " + url.parse(req.url));
                 if(requestPath.lastIndexOf("/") == requestPath.length-1 && stat.isDirectory()){
                     this.respondDirectory(pathName, req, res);
                 }else if (stat.isDirectory()) {
@@ -54,15 +52,16 @@ class StaticServer {
     }
 
     respondFile(pathName, req, res) {
+        console.log("file path: " + pathName);
         const readStream = fs.createReadStream(pathName);
-        res.setHeader("Content-Type", mime.lookup(pathName));
+        res.setHeader("content-type", mime.lookup(pathName));
         readStream.pipe(res);
     }
 
     respondRedirect(req, res) {
-        const locationn = req + '/';
+        const location = req.url + '/';
         res.writeHead(301, {
-            'Location': locationn,
+            'Location': location,
             'Content-Type': 'text/html'
         });
         res.end(`Redirecting to <a href='${location}'>${location}</a>`);
@@ -70,7 +69,7 @@ class StaticServer {
 
     respondDirectory(pathname, req, res) {
         const indexPage = path.join(pathname, this.indexPage);
-        if(fs.statSync(indexPage)){
+        if(fs.existsSync(indexPage)){
             this.respondFile(indexPage, res, req);
         }else{
             fs.readdir(pathname, (err, files) => {
@@ -88,7 +87,7 @@ class StaticServer {
                     }
                     content += `<p><a href='${itemLink}'>${file}</a></p>`;
                 });
-                res.writeEnd(200, {
+                res.writeHead(200, {
                     'Content-Type': 'text/html'
                 });
                 res.end(content);
