@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38761bd0-1719-4bfe-93d8-021befff3921" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/https-server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/default.json" beforeDir="false" afterPath="$PROJECT_DIR$/static-server/config/default.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/img/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/static-server/img/bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/img/money.png" beforeDir="false" afterPath="$PROJECT_DIR$/static-server/img/money.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/lookup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static-server/lookup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static_server.js" beforeDir="false" afterPath="$PROJECT_DIR$/static-server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static-server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static-server/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -53,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -121,9 +112,9 @@
         <option value="$PROJECT_DIR$/server/config/default.json" />
         <option value="$PROJECT_DIR$/server/static_server.js" />
         <option value="$PROJECT_DIR$/https-server/https_server.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/https-server/index.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -220,12 +211,12 @@
       <workItem from="1535362554059" duration="319000" />
       <workItem from="1535363074294" duration="513000" />
       <workItem from="1535364109260" duration="3771000" />
-      <workItem from="1535453026841" duration="2297000" />
+      <workItem from="1535453026841" duration="2424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18910000" />
+    <option name="totallyTimeSpent" value="19037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="228" y="162" width="1855" height="974" extended-state="0" />
@@ -559,13 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/https-server/cas/key.pem">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -590,6 +574,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

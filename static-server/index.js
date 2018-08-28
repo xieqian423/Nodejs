@@ -53,6 +53,7 @@ class StaticServer {
 
     respondFile(pathName, req, res) {
         const readStream = fs.createReadStream(pathName);
+        //res.setHeader("content-type", 'text/html');
         res.setHeader("content-type", mime.lookup(pathName));
         readStream.pipe(res);
     }
