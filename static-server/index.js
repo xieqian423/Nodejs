@@ -52,7 +52,6 @@ class StaticServer {
     }
 
     respondFile(pathName, req, res) {
-        console.log("file path: " + pathName);
         const readStream = fs.createReadStream(pathName);
         res.setHeader("content-type", mime.lookup(pathName));
         readStream.pipe(res);
@@ -70,7 +69,7 @@ class StaticServer {
     respondDirectory(pathname, req, res) {
         const indexPage = path.join(pathname, this.indexPage);
         if(fs.existsSync(indexPage)){
-            this.respondFile(indexPage, res, req);
+            this.respondFile(indexPage, req, res);
         }else{
             fs.readdir(pathname, (err, files) => {
                 if(err){
