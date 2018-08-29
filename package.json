@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --inspect ./app.js"
+    "dev": "node --inspect ./app.js",
+    "start": "node --inspect-brk ./http-server/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/xieqian423/nodejs/issues"
   },
-  "homepage": "https://github.com/xieqian423/nodejs#readme"
+  "homepage": "https://github.com/xieqian423/nodejs#readme",
+  "devDependencies": {
+    "webpack": "^4.17.1"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
 }

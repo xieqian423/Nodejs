@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>welcome to index</p>
+<button onclick="getDetail()">获取用户信息</button>
+<script src="main.js"></script>
+<script src="../utils/http.js"></script>
+<script type="text/javascript">
+    function getDetail() {
+        alert('click');
+        http.post('/user/getDetails',{}, function (res) {
+            console.log(res);
+        });
+    }
+</script>
+</body>
+</html>

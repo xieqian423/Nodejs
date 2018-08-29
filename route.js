@@ -1,5 +1,5 @@
 
-class Rpute {
+class Route {
     constructor () {}
     get (url, callback) {
 

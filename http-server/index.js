@@ -3,8 +3,7 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
-const mime = require('./lookup');
-const config = require('./config/default');
+const Router = require('../route');
 
 console.log("process.cwd(): " +  process.cwd());
 console.log("__dirname: " + __dirname);
@@ -12,26 +11,49 @@ console.log("__filename: " + __filename);
 
 class HttpServer {
     constructor() {
-        this.port = config.port;
         this.root = __dirname; //process.cwd(); //config.root;
-        this.indexPage = config.indexPage;
     }
 
     start() {
         http.createServer((req, res) => {
-            const pathName = path.join(this.root, path.normalize(req.url));
-            this.routeHandler(pathName, req, res);
+            if(req.url !== "/"){
+                this.routeHandler(req, res);
+            }else {
+                res.setHeader('Content-TYpe', "text/html;charset='utf-8'");
+                fs.readFile(path.join(this.root, '../webapp/index.html'), 'utf-8', function (err, data) {
+                    if(err){
+                        res.end('page not found');
+                    }else {
+                        res.end(data);
+                    }
+                })
+            }
             //res.writeHead(200);
             //res.end(`Requeste path: ${pathName}`);
-        }).listen(this.port, err => {
+        }).listen(8999, err => {
             if (err) {
                 console.error(err);
                 console.info('Failed to start server');
             } else {
-                console.info(`Server started on port ${this.port}`);
+                console.info(`Server started on port 8999`);
             }
+        });
+    }
+
+    routeHandler (req, res) {
+        var route = req.url;
+        // cookie解析
+        Router.get('/user/getDetails', function (req, res) {
+            res.writeHead(200);
+            res.end({
+                name: 'tom',
+                age: 24
+            });
         });
     }
 }
 
-module.exports = HttpServer
+//module.exports = new HttpServer
+(new HttpServer()).start();
+
+//创建守护进程自动重启
