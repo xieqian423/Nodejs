@@ -5,17 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<p>welcome to index</p>
-<button onclick="getDetail()">获取用户信息</button>
 <script src="main.js"></script>
-<script src="../utils/http.js"></script>
+<script src="http.js"></script>
 <script type="text/javascript">
     function getDetail() {
         alert('click');
-        http.post('/user/getDetails',{}, function (res) {
+        http.get('/user/getDetails',{}, function (res) {
             console.log(res);
         });
     }
 </script>
+<p>welcome to index</p>
+<button onclick="getDetail()">获取用户信息</button>
 </body>
 </html>

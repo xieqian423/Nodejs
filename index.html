@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>111</title>
 </head>
 <body>
-<p>hello world spritJS</p>
+<p>welcome to index</p>
+<button onclick="getDetail()">获取用户信息</button>
+<h1 id="number">1</h1>
+<a id="forward" href="?"num=2>GO FORWARD</a>
+<script type="text/javascript">sss
+    function getDetail() {
+        alert('click');
+//        http.post('/user/getDetails',{}, function (res) {e
+//            console.log(res);
+//        });
+    }
+    var link = document.getElementById('forward');
+    var num = document.getElementById('number');
+    link.addEventListener('click', function(e){
+        e.peventDefault();
+        var myNum = parseInt(num.innerHTML, 10);
+        num.innerHTML = ++myNum;
+        //history.pushState({count:myNum}, null, '?num='+myNum);
+        //document.tittle = 'Number'+myNum;
+    });
+</script>
 </body>
 </html>
