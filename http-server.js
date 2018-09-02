@@ -92,6 +92,17 @@ class HttpServer {
 
     routeHandler (req, res) {
         var route = req.url;
+        //检查cookie
+        //checkCookie(req, res);
+        var cookies = {};
+        req.headers.cookie && req.headers.cookie.split(';').forEach(function(cookie){
+            var parts = cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1] || '').trim();
+        });
+        this.loginSrv(req, res);
+    }
+
+    srv (req, res) {
         var result = JSON.stringify({
             name: 'tom',
             age: 24
@@ -100,15 +111,7 @@ class HttpServer {
         //res.setHeader('Content-Type', 'text/json');
         res.write(result);
         res.end();
-        // cookie解析
-        //Router.get('/login', function (req, res) {
-        //    res.writeHead(200,{'Content-Type':'application/json'});
-        //    res.end({
-        //        name: 'tom',
-        //        age: 24
-        //    });
-        //});
-        //
+
         //Router.get('/user/getDetails', function (req, res) {
         //    res.writeHead(200);
         //    res.end(JSON.stringify({
@@ -117,6 +120,29 @@ class HttpServer {
         //    }));
         //});
     }
+
+    checkCookie (req, res) {
+
+    }
+
+    loginSrv (req, res) {
+        // cookie解析
+        res.writeHead(200, {
+            'Set-Cookie': 'myCookie=test',
+            'Content-Type': 'text/plain'
+        });
+        res.end('Hello World');
+    }
+
+    redirect (req, res) {
+        const location = path.join(this.webContentPath, 'login.html');
+        res.writeHead(301, {
+            'Location': location,
+            'Content-Type': 'text/html'
+        });
+        res.end(`Redirecting to <a href='${location}'>${location}</a>`);
+    }
+
 }
 
 //module.exports = new HttpServer
