@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="file" id="upload" name="upload">
+<script src="uploadFile.js"></script>
+<script>
+    var files = document.getElementById(upload).files;
+
+    var form = new FormData();
+
+    var url = '/upload';
+    var xhr = new XMLHttpRequest();
+    xhr.open('post',  url, true);
+    xhr.addEventListener('readyStateChange', function () {
+        var result = xhr;
+        if(result.status == 200 && result.readyState == 4){
+            alert('upload success');
+        }
+    });
+    xhr.send(form);
+</script>
+</body>
+</html>
